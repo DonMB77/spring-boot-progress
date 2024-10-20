@@ -1,8 +1,22 @@
 package com.drifter;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
 public class Costumer {
+
+    @Id
+    @SequenceGenerator(
+            name = "costumer_id_sequence",
+            sequenceName = "costumer_id_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "costumer_id_sequence"
+    )
     private Integer id;
     private Integer age;
     String name;
@@ -47,7 +61,7 @@ public class Costumer {
         return email;
     }
 
-    public void setId(String email){
+    public void setEmail(String email){
         this.email = email;
     }
 
